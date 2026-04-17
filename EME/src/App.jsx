@@ -1,7 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar";
+import MovieGuessingEmoji from "./pages/MovieGuessingEmoji/MovieGuessingEmoji";
+
+const pageLinks = [];
+
+function addPageLinks(path, element) {
+  pageLinks.push({ path, element });
+}
+
+//add page routers here
+addPageLinks("/", <Home />);
+addPageLinks("/emoji", <MovieGuessingEmoji />);
 
 function App() {
   return (
@@ -11,9 +22,16 @@ function App() {
 
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Home />} />
+            {pageLinks.map((pageLink) => (
+              <Route
+                key={pageLink.path}
+                path={pageLink.path}
+                element={pageLink.element}
+              />
+            ))}
           </Routes>
         </div>
+        
       </div>
     </BrowserRouter>
   );
