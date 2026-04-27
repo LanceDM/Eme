@@ -1,37 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home/Home";
-import Navbar from "./components/Navbar";
-import MovieGuessingEmoji from "./pages/MovieGuessingEmoji/MovieGuessingEmoji";
 
-const pageLinks = [];
-
-function addPageLinks(path, element) {
-  pageLinks.push({ path, element });
-}
-
-//add page routers here
-addPageLinks("/", <Home />);
-addPageLinks("/emoji", <MovieGuessingEmoji />);
-
+import { Base } from "./components/Base";
+import { Nav } from "./components/Nav";
+import { Login } from "./components/Login";
 function App() {
   return (
     <BrowserRouter>
-      <div className="app-root">
-        <Navbar />
+      <Nav />
 
-        <div className="pages">
-          <Routes>
-            {pageLinks.map((pageLink) => (
-              <Route
-                key={pageLink.path}
-                path={pageLink.path}
-                element={pageLink.element}
-              />
-            ))}
-          </Routes>
-        </div>
-        
+      <div className="Base-wrapper">
+        <Routes>
+          <Route path="/" element={<Base />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );
