@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/routetree.gen.ts","./src/routes/__root.tsx","./src/routes/_authenticated.tsx","./src/routes/index.tsx","./src/routes/login.tsx","./src/routes/register.tsx","./src/routes/_authenticated/app.tsx","./src/routes/_authenticated/profile.tsx"],"version":"6.0.3"}
